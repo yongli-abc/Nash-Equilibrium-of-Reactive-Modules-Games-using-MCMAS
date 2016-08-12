@@ -1,0 +1,68 @@
+Agent Environment
+    Obsvars:
+        m0_u0 : boolean;
+        m0_d0 : boolean;
+        m1_u1 : boolean;
+        m1_d1 : boolean;
+        c_true : boolean;
+    end Obsvars
+    Actions = { nothing };
+    Protocol:
+        Other : { nothing };
+    end Protocol
+    Evolution:
+        (m0_u0 = true and m0_d0 = false and m1_u1 = true and m1_d1 = false) if m0.Action = gc0 and m1.Action = gc0;
+        (m0_u0 = true and m0_d0 = false and m1_u1 = false and m1_d1 = true) if m0.Action = gc0 and m1.Action = gc1;
+        (m0_u0 = false and m0_d0 = true and m1_u1 = true and m1_d1 = false) if m0.Action = gc1 and m1.Action = gc0;
+        (m0_u0 = false and m0_d0 = true and m1_u1 = false and m1_d1 = true) if m0.Action = gc1 and m1.Action = gc1;
+    end Evolution
+end Agent
+
+Agent m0
+    Vars:
+        u0 : boolean;
+        d0 : boolean;
+    end Vars
+    Actions = { gc0, gc1 };
+    Protocol:
+        Environment.c_true = true : { gc0 };
+        Environment.c_true = true : { gc1 };
+    end Protocol
+    Evolution:
+        u0 = true and d0 = false if Action = gc0;
+        u0 = false and d0 = true if Action = gc1;
+    end Evolution
+end Agent
+
+Agent m1
+    Vars:
+        u1 : boolean;
+        d1 : boolean;
+    end Vars
+    Actions = { gc0, gc1 };
+    Protocol:
+        Environment.c_true = true : { gc0 };
+        Environment.c_true = true : { gc1 };
+    end Protocol
+    Evolution:
+        u1 = true and d1 = false if Action = gc0;
+        u1 = false and d1 = true if Action = gc1;
+    end Evolution
+end Agent
+
+Evaluation
+    u0 if m0.u0 = true;
+    d0 if m0.d0 = true;
+    u1 if m1.u1 = true;
+    d1 if m1.d1 = true;
+end Evaluation
+
+InitStates
+    ((m0.u0 = true and Environment.m0_u0 = true and m0.d0 = false and Environment.m0_d0 = false) or
+(m0.u0 = false and Environment.m0_u0 = false and m0.d0 = true and Environment.m0_d0 = true)) and ((m1.u1 = true and Environment.m1_u1 = true and m1.d1 = false and Environment.m1_d1 = false) or
+(m1.u1 = false and Environment.m1_u1 = false and m1.d1 = true and Environment.m1_d1 = true)) and Environment.c_true = true;
+end InitStates
+
+Formulae
+<<stE>> (Environment, stE) (<<st0>> (m0, st0) <<st1>> (m1, st1) (AG AF (d0 and u1)));
+end Formulae

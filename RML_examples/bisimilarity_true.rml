@@ -1,0 +1,47 @@
+module m1 controls a
+    init
+    [] True ~> a := True
+    [] True ~> a := False
+    update
+    [] True ~> a := True
+    [] True ~> a := False
+    goal
+    F G p
+end module
+
+module m2 controls b
+    init
+    [] True ~> b := True
+    [] True ~> b := False
+    update
+    [] True ~> b := True
+    [] True ~> b := False
+    goal
+    F G q
+end module
+
+module m3 controls c
+    init
+    [] True ~> c := True
+    [] True ~> c := False
+    update
+    [] True ~> c := True
+    [] True ~> c := False
+    goal
+    True
+end module
+
+module m4 controls p, q, s0, s11, s12, s2, s3, s4
+    init
+    [] True ~> p := False, q := False, s0 := True, s11 := False, s12 := False, s2 := False, s3 := False, s4 := False
+    update
+    [] (s0 && a && b && c) ~> s4 := True, s0 := False
+    [] (s0 && a && !b && c) ~> s12 := True, s0 := False
+    [] (s0 && (! ((a && b && c) || (a && (!b) && c)))) ~> s11 := True, s0 := False
+    [] (s11 && c) ~> s2 := True, s11 := False, p := True
+    [] (s11 && !c) ~> s3 := True, s11 := False, q := True
+    [] (s12 && c) ~> s2 := True, s12 := False, p := True
+    [] (s12 && !c) ~> s3 := True, s12 := False, q := True
+    goal
+    True
+end module

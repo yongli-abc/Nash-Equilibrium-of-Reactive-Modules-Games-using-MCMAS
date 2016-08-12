@@ -1,0 +1,22 @@
+module Casino controls turn, coin_c
+    init
+    [] True ~> turn := True, coin_c := False
+    [] True ~> turn := True, coin_c := True
+    update
+    [] turn ~> coin_c := True, turn := False
+    [] turn ~> coin_c := False, turn := False
+    [] ! turn ~> turn := True
+    goal
+    GF(!turn -> !((coin_c -> Xcoin_p) && (Xcoin_p -> coin_c)))
+end module
+
+module Player controls coin_p
+    init
+    [] True ~> coin_p := True
+    [] True ~> coin_p := False
+    update
+    [] ! turn ~> coin_p := True
+    [] ! turn ~> coin_p := False
+    goal
+    GF(!turn -> ((coin_c -> Xcoin_p) && (Xcoin_p -> coin_c)))
+end module

@@ -1,0 +1,20 @@
+# This file contains an example RML module 'toggle'
+module toggle controls x,y
+    init # This is the init-part
+    [] True ~> x:=True, y:=False
+    [] True ~> x:=False, y:= True
+    update # This is the udpate-part
+    [] (x && !y) ~> x:=False, y:=True
+    [] (!x && y) ~> x:=y, y:=x
+    # Here could optionally be a goal-part
+end module
+
+# The following is anohter 'toggle' example given in paper "On the Complexity of Practical ATL Model Checking"
+module toggle controls x
+    init
+    [] True ~> x:=True
+    [] True ~> x:=False
+    update
+    [] x ~> x:=False
+    [] (!x) ~> x:=True
+end module

@@ -1,0 +1,25 @@
+# This file contains the peer-to-peer communication protocol given in the paper "A Tool for the Automated Verification of Nash Equilibria in Concurrent Games"
+
+# According to the paper, this RMG should have at least one NE, the OnlyUP NE
+
+module m controls u, d
+    init
+    [] True ~> u := True, d := False
+    [] True ~> u := False, d := True
+    update
+    [] True ~> u := True, d := False
+    [] True ~> u := False, d := True
+    goal
+    GF(d && u)
+end module
+
+module n controls p, q
+    init
+    [] True ~> p := True, q := False
+    [] True ~> p := False, q := True
+    update
+    [] True ~> p := True, q := False
+    [] True ~> p := False, q := True
+    goal
+    GF(p && q)
+end module

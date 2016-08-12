@@ -1,0 +1,74 @@
+Agent Environment
+    Obsvars:
+        Casino_turn : boolean;
+        Casino_coin_c : boolean;
+        Player_coin_p : boolean;
+    end Obsvars
+
+    Actions = { nothing };
+
+    Protocol:
+        Other : { nothing };
+    end Protocol
+
+    Evolution:
+        (Casino_coin_c = true and Casino_turn = false and Player_coin_p = true)if Casino.Action = gc1 and Player.Action = gc1;
+        (Casino_coin_c = true and Casino_turn = false and Player_coin_p = false) if Casino.Action = gc1 and Player.Action = gc2;
+        (Casino_coin_c = false and Casino_turn = false and Player_coin_p = true) if Casino.Action = gc2 and Player.Action = gc1;
+        (Casino_coin_c = false and Casino_turn = false and Player_coin_p = false ) if Casino.Action = gc2 and Player.Action = gc2;
+        (Casino_turn = true and Player_coin_p = true) if Casino.Action = gc3 and Player.Action = gc1;
+        (Casino_turn = true and Player_coin_p = false) if Casino.Action = gc3 and Player.Action = gc2;
+    end Evolution
+end Agent
+
+Agent Casino
+    Vars:
+        turn: boolean;
+        coin_c: boolean;
+    end Vars
+
+    Actions = {gc1, gc2, gc3};
+
+    Protocol:
+        turn = true : { gc1 };
+        turn = true : { gc2 };
+        ! turn = true : { gc3 };
+    end Protocol
+
+    Evolution:
+        coin_c = true and turn = false if Action = gc1;
+        coin_c = false and turn = false if Action = gc2;
+        turn = true if Action = gc3;
+    end Evolution
+end Agent
+
+Agent Player
+    Vars:
+        coin_p: boolean;
+    end Vars
+
+    Actions = {gc1, gc2};
+
+    Protocol:
+        ! Environment.Casino_turn = true : { gc1 };
+        ! Environment.Casino_turn = true : { gc2 };
+    end Protocol
+
+    Evolution:
+        coin_p = true if Action = gc1;
+        coin_p = false if Action = gc2;
+    end Evolution
+end Agent
+
+Evaluation
+    turn if Casino.turn = true;
+    coin_c if Casino.coin_c = true;
+    coin_p if Player.coin_p = true;
+end Evaluation
+
+InitStates
+    ((Casino.turn = true and Casino.coin_c = false and Environment.Casino_turn = true and Environment.Casino_coin_c = false) or
+    (Casino.turn = true and Casino.coin_c = true and Environment.Casino_turn = true and Environment.Casino_coin_c = true)) and
+    ((Player.coin_p = true and Environment.Player_coin_p = true) or
+    (Player.coin_p = false and Environment.Player_coin_p = false));
+end InitStates
