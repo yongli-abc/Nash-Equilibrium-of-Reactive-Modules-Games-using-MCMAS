@@ -11,6 +11,9 @@ def verify_result(r):
     '''
     r: a list of parsed module results
     '''
+    '''
+    2. All controlled variabels are different.
+    '''
     for m in r:
         for v in m["variable_list"]:
             if v in controlled_variable_set:
