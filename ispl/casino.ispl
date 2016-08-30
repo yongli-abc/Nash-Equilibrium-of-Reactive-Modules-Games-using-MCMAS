@@ -7,7 +7,7 @@ Agent Environment
     end Obsvars
     Actions = { skip };
     Protocol:
-        Other : { skip }; 
+        Other : { skip };
     end Protocol
     Evolution:
         (Casino_coin_c = true and Casino_turn = false and Player_coin_p = true) if Casino.Action = gc0 and Player.Action = gc0;
@@ -70,9 +70,9 @@ end InitStates
 Formulae
     <<ste>> (Environment, ste) (
         <<st0>> <<st1>> (Casino, st0) (Player, st1) (
-            (([[alt_st0]] (Casino, alt_st0) !(G F (!(!turn) or (!((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c))))))) or (G F (!(!turn) or (!((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c)))))))
+            X (([[alt_st0]] (Casino, alt_st0) !(G F (!(!turn) or (!((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c))))))) or (G F (!(!turn) or (!((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c)))))))
             and
-            (([[alt_st1]] (Player, alt_st1) !(G F (!(!turn) or (((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c))))))) or (G F (!(!turn) or (((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c)))))))
+            X (([[alt_st1]] (Player, alt_st1) !(G F (!(!turn) or (((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c))))))) or (G F (!(!turn) or (((!(coin_c) or (X coin_p)) and (!(X coin_p) or (coin_c)))))))
         )
     );
 end Formulae

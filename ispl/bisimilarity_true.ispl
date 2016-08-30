@@ -3,14 +3,15 @@ Agent Environment
         m1_a : boolean;
         m2_b : boolean;
         m3_c : boolean;
-        m4_p : boolean;
-        m4_q : boolean;
-        m4_s0 : boolean;
-        m4_s11 : boolean;
-        m4_s12 : boolean;
-        m4_s2 : boolean;
-        m4_s3 : boolean;
-        m4_s4 : boolean;
+        m4_d : boolean;
+        m5_p : boolean;
+        m5_q : boolean;
+        m5_s0 : boolean;
+        m5_s11 : boolean;
+        m5_s12 : boolean;
+        m5_s2 : boolean;
+        m5_s3 : boolean;
+        m5_s4 : boolean;
         const_true : boolean;
     end Obsvars
     Actions = { skip };
@@ -18,62 +19,86 @@ Agent Environment
         Other : { skip }; 
     end Protocol
     Evolution:
-        (m1_a = true and m2_b = true and m3_c = true and m4_s4 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s12 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s11 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc2;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc3;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc4;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc5;
-        (m1_a = true and m2_b = true and m3_c = true and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc6;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s4 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s12 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s11 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc2;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc3;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc4;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc5;
-        (m1_a = true and m2_b = true and m3_c = false and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc6;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s4 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s12 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s11 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc2;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc3;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc4;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc5;
-        (m1_a = true and m2_b = false and m3_c = true and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc6;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s4 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s12 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s11 = true and m4_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc2;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc3;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc4;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc5;
-        (m1_a = true and m2_b = false and m3_c = false and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc6;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s4 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s12 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s11 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc2;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc3;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc4;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc5;
-        (m1_a = false and m2_b = true and m3_c = true and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc6;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s4 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s12 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s11 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc2;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc3;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc4;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc5;
-        (m1_a = false and m2_b = true and m3_c = false and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc6;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s4 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s12 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s11 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc2;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc3;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc4;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc5;
-        (m1_a = false and m2_b = false and m3_c = true and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc6;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s4 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s12 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s11 = true and m4_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc2;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s2 = true and m4_s11 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc3;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s3 = true and m4_s11 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc4;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s2 = true and m4_s12 = false and m4_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc5;
-        (m1_a = false and m2_b = false and m3_c = false and m4_s3 = true and m4_s12 = false and m4_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc6;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = true and m2_b = true and m3_c = true and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = true and m2_b = true and m3_c = false and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = true and m2_b = false and m3_c = true and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = true and m2_b = false and m3_c = false and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc0 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = false and m2_b = true and m3_c = true and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = false and m2_b = true and m3_c = false and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc0 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = false and m2_b = false and m3_c = true and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc0 and m4.Action = gc1 and m5.Action = gc4;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc0;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = true and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc1;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = true and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc2;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = true and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc3;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = true and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc0 and m5.Action = gc4;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = false and m5_s4 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc0;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = false and m5_s11 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc1;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = false and m5_s12 = true and m5_s0 = false) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc2;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = false and m5_s2 = true and m5_s11 = false and m5_p = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc3;
+        (m1_a = false and m2_b = false and m3_c = false and m4_d = false and m5_s3 = true and m5_s12 = false and m5_q = true) if m1.Action = gc1 and m2.Action = gc1 and m3.Action = gc1 and m4.Action = gc1 and m5.Action = gc4;
     end Evolution
 end Agent
 
@@ -127,6 +152,22 @@ end Agent
 
 Agent m4
     Vars:
+        d : boolean;
+    end Vars
+    Actions = { gc0, gc1, skip };
+    Protocol:
+        Environment.const_true = true : { gc0 };
+        Environment.const_true = true : { gc1 };
+        Other : { skip };
+    end Protocol
+    Evolution:
+        d = true if Action = gc0;
+        d = false if Action = gc1;
+    end Evolution
+end Agent
+
+Agent m5
+    Vars:
         p : boolean;
         q : boolean;
         s0 : boolean;
@@ -136,25 +177,21 @@ Agent m4
         s3 : boolean;
         s4 : boolean;
     end Vars
-    Actions = { gc0, gc1, gc2, gc3, gc4, gc5, gc6, skip };
+    Actions = { gc0, gc1, gc2, gc3, gc4, skip };
     Protocol:
-        (s0 = true and Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true) : { gc0 };
-        (s0 = true and Environment.m1_a = true and !Environment.m2_b = true and Environment.m3_c = true) : { gc1 };
-        (s0 = true and (!((Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true) or (Environment.m1_a = true and (!Environment.m2_b = true) and Environment.m3_c = true)))) : { gc2 };
-        (s11 = true and Environment.m3_c = true) : { gc3 };
-        (s11 = true and !Environment.m3_c = true) : { gc4 };
-        (s12 = true and Environment.m3_c = true) : { gc5 };
-        (s12 = true and !Environment.m3_c = true) : { gc6 };
+        (s0 = true and Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true) : { gc0 };
+        (s0 = true and ((!(Environment.m1_a = true and !Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true) and !(!Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true) and !(Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true)) or (!Environment.m1_a = true and Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true))) : { gc1 };
+        (s0 = true and Environment.m1_a = true and !Environment.m2_b = true and Environment.m3_c = true and Environment.m4_d = true) : { gc2 };
+        (s11 = true and ((Environment.m3_c = true and Environment.m4_d = true) or (!Environment.m3_c = true and !Environment.m4_d = true))) : { gc3 };
+        (s12 = true and ((Environment.m3_c = true and !Environment.m4_d = true) or (!Environment.m3_c = true and Environment.m4_d = true))) : { gc4 };
         Other : { skip };
     end Protocol
     Evolution:
         s4 = true and s0 = false if Action = gc0;
-        s12 = true and s0 = false if Action = gc1;
-        s11 = true and s0 = false if Action = gc2;
+        s11 = true and s0 = false if Action = gc1;
+        s12 = true and s0 = false if Action = gc2;
         s2 = true and s11 = false and p = true if Action = gc3;
-        s3 = true and s11 = false and q = true if Action = gc4;
-        s2 = true and s12 = false and p = true if Action = gc5;
-        s3 = true and s12 = false and q = true if Action = gc6;
+        s3 = true and s12 = false and q = true if Action = gc4;
     end Evolution
 end Agent
 
@@ -162,14 +199,15 @@ Evaluation
     a if m1.a = true;
     b if m2.b = true;
     c if m3.c = true;
-    p if m4.p = true;
-    q if m4.q = true;
-    s0 if m4.s0 = true;
-    s11 if m4.s11 = true;
-    s12 if m4.s12 = true;
-    s2 if m4.s2 = true;
-    s3 if m4.s3 = true;
-    s4 if m4.s4 = true;
+    d if m4.d = true;
+    p if m5.p = true;
+    q if m5.q = true;
+    s0 if m5.s0 = true;
+    s11 if m5.s11 = true;
+    s12 if m5.s12 = true;
+    s2 if m5.s2 = true;
+    s3 if m5.s3 = true;
+    s4 if m5.s4 = true;
     const_true if Environment.const_true = true;
 end Evaluation
 
@@ -177,19 +215,22 @@ InitStates
     ((m1.a = true and Environment.m1_a = true) or
 (m1.a = false and Environment.m1_a = false)) and ((m2.b = true and Environment.m2_b = true) or
 (m2.b = false and Environment.m2_b = false)) and ((m3.c = true and Environment.m3_c = true) or
-(m3.c = false and Environment.m3_c = false)) and ((m4.p = false and Environment.m4_p = false and m4.q = false and Environment.m4_q = false and m4.s0 = true and Environment.m4_s0 = true and m4.s11 = false and Environment.m4_s11 = false and m4.s12 = false and Environment.m4_s12 = false and m4.s2 = false and Environment.m4_s2 = false and m4.s3 = false and Environment.m4_s3 = false and m4.s4 = false and Environment.m4_s4 = false)) and Environment.const_true = true;
+(m3.c = false and Environment.m3_c = false)) and ((m4.d = true and Environment.m4_d = true) or
+(m4.d = false and Environment.m4_d = false)) and ((m5.p = false and Environment.m5_p = false and m5.q = false and Environment.m5_q = false and m5.s0 = true and Environment.m5_s0 = true and m5.s11 = false and Environment.m5_s11 = false and m5.s12 = false and Environment.m5_s12 = false and m5.s2 = false and Environment.m5_s2 = false and m5.s3 = false and Environment.m5_s3 = false and m5.s4 = false and Environment.m5_s4 = false)) and Environment.const_true = true;
 end InitStates
 
 Formulae
     <<ste>> (Environment, ste) (
-        <<st0>> <<st1>> <<st2>> <<st3>> (m1, st0) (m2, st1) (m3, st2) (m4, st3) (
-            (([[alt_st0]] (m1, alt_st0) !(F G p)) or (F G p))
+        <<st0>> <<st1>> <<st2>> <<st3>> <<st4>> (m1, st0) (m2, st1) (m3, st2) (m4, st3) (m5, st4) (
+            (([[alt_st0]] (m1, alt_st0) !(X X q)) or (X X q))
             and
-            (([[alt_st1]] (m2, alt_st1) !(F G q)) or (F G q))
+            (([[alt_st1]] (m2, alt_st1) !(X X p)) or (X X p))
             and
-            (([[alt_st2]] (m3, alt_st2) !(const_true)) or (const_true))
+            (([[alt_st2]] (m3, alt_st2) !(X X (!p and !q) or X X (p and !q))) or (X X (!p and !q) or X X (p and !q)))
             and
-            (([[alt_st3]] (m4, alt_st3) !(const_true)) or (const_true))
+            (([[alt_st3]] (m4, alt_st3) !(X X (!p and !q) or X X (!p and q))) or (X X (!p and !q) or X X (!p and q)))
+            and
+            (([[alt_st4]] (m5, alt_st4) !(const_true)) or (const_true))
         )
     );
 end Formulae

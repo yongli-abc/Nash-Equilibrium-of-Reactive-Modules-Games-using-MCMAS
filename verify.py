@@ -58,12 +58,14 @@ def verify_module(m):
     for gc in m["init"]:
         for action in gc["action_part"]:
             if action["assigned_variable"][0] not in m["variable_list"].asList():
-                raise ParseException("Having a uncontrollable variable in lhs of an assignment.")
+                v = action["assigned_variable"][0]
+                raise ParseException("Having a uncontrollable variable: " + v + ", in lhs of an assignment.")
 
     for gc in m["update"]:
         for action in gc["action_part"]:
             if action["assigned_variable"][0] not in m["variable_list"].asList():
-                raise ParseException("Having a uncontrollable variable in lhs of an assignment.")
+                v = action["assigned_variable"][0]
+                raise ParseException("Having a uncontrollable variable: " + v + ", in lhs of an assignment.")
 
     '''
     5. For each guarded command, all the variables appeared in assignment must be within all controlled variables.

@@ -8,7 +8,7 @@ Agent Environment
     end Obsvars
     Actions = { skip };
     Protocol:
-        Other : { skip }; 
+        Other : { skip };
     end Protocol
     Evolution:
         (m0_u0 = true and m0_d0 = false and m1_u1 = true and m1_d1 = false) if m0.Action = gc0 and m1.Action = gc0;
@@ -69,9 +69,9 @@ end InitStates
 Formulae
     <<ste>> (Environment, ste) (
         <<st0>> <<st1>> (m0, st0) (m1, st1) (
-            (([[alt_st0]] (m0, alt_st0) !(G F (d0 and u1))) or (G F (d0 and u1)))
+            X (([[alt_st0]] (m0, alt_st0) !(G F (d0 and u1))) or (G F (d0 and u1)))
             and
-            (([[alt_st1]] (m1, alt_st1) !(G F (d1 and u0))) or (G F (d1 and u0)))
+            X (([[alt_st1]] (m1, alt_st1) !(G F (d1 and u0))) or (G F (d1 and u0)))
         )
     );
 end Formulae

@@ -15,7 +15,7 @@ Agent Environment
     end Obsvars
     Actions = { skip };
     Protocol:
-        Other : { skip }; 
+        Other : { skip };
     end Protocol
     Evolution:
         (m1_a = true and m2_b = true and m3_c = true and m4_d = true and m5_s4 = true and m5_s0 = false) if m1.Action = gc0 and m2.Action = gc0 and m3.Action = gc0 and m4.Action = gc0 and m5.Action = gc0;
@@ -201,15 +201,15 @@ end InitStates
 Formulae
     <<ste>> (Environment, ste) (
         <<st0>> <<st1>> <<st2>> <<st3>> <<st4>> (m1, st0) (m2, st1) (m3, st2) (m4, st3) (m5, st4) (
-            (([[alt_st0]] (m1, alt_st0) !(X X q)) or (X X q))
+            X (([[alt_st0]] (m1, alt_st0) !(X X q)) or (X X q))
             and
-            (([[alt_st1]] (m2, alt_st1) !(X X p)) or (X X p))
+            X (([[alt_st1]] (m2, alt_st1) !(X X p)) or (X X p))
             and
-            (([[alt_st2]] (m3, alt_st2) !(X X (!p and !q) or X X (p and !q))) or (X X (!p and !q) or X X (p and !q)))
+            X (([[alt_st2]] (m3, alt_st2) !(X X (!p and !q) or X X (p and !q))) or (X X (!p and !q) or X X (p and !q)))
             and
-            (([[alt_st3]] (m4, alt_st3) !(X X (!p and !q) or X X (!p and q))) or (X X (!p and !q) or X X (!p and q)))
+            X (([[alt_st3]] (m4, alt_st3) !(X X (!p and !q) or X X (!p and q))) or (X X (!p and !q) or X X (!p and q)))
             and
-            (([[alt_st4]] (m5, alt_st4) !(const_true)) or (const_true))
+            X (([[alt_st4]] (m5, alt_st4) !(const_true)) or (const_true))
         )
     );
 end Formulae

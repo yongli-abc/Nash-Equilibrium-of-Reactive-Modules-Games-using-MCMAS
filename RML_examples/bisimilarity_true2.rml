@@ -6,7 +6,7 @@ module m1 controls a
     [] True ~> a := True
     [] True ~> a := False
     goal
-    X X q
+    F G p
 end module
 
 module m2 controls b
@@ -17,7 +17,7 @@ module m2 controls b
     [] True ~> b := True
     [] True ~> b := False
     goal
-    X X p
+    F G q
 end module
 
 module m3 controls c
@@ -28,7 +28,7 @@ module m3 controls c
     [] True ~> c := True
     [] True ~> c := False
     goal
-    X X (!p && !q) || X X (p && !q)
+    (F G (!p && !q)) || (F G (p && !q))
 end module
 
 module m4 controls d
@@ -39,17 +39,20 @@ module m4 controls d
     [] True ~> d := True
     [] True ~> d := False
     goal
-    X X (!p && !q) || X X (!p && q)
+    (F G (!p && !q)) || (F G (!p && q))
 end module
 
-module m5 controls p, q, s0, s11, s12, s2, s3, s4
+module m5 controls p, q, s00, s0, s11, s12, s2, s3, s4
     init
-    [] True ~> p := False, q := False, s0 := True, s11 := False, s12 := False, s2 := False, s3 := False, s4 := False
+    [] True ~> p := False, q := False, s00 := True, s0 := False, s11 := False, s12 := False, s2 := False, s3 := False, s4 := False
     update
-    [] (s0 && a && b && c && d) ~> s4 := True, s0 := False
-    [] (s0 && ( (!(a && !b && c && d) && !(!a && b && c && d) && !(a && b && c && d)) || (!a && b && c && d) )) ~> s11 := True, s0 := False
-    [] (s0 && a && !b && c && d) ~> s12 := True, s0 := False
+    [] (s00) ~> s0 := True, s00 := False
+    [] (s0 && (a && b && c && d)) ~> s4 := True, s0 := False
+    [] (s0 && (a && !b && c && d)) ~> s12 := True, s0 := False
+    [] (s0 && !((a && b && c && d) || (a && !b && c && d))) ~> s11 := True, s0 := False
     [] (s11 && ((c && d) || (!c && !d))) ~> s2 := True, s11 := False, p := True
+    [] (s11 && ((c && !d) || (!c && d))) ~> s3 := True, s11 := False, q := True
+    [] (s12 && ((c && d) || (!c && !d))) ~> s2 := True, s12 := False, p := True
     [] (s12 && ((c && !d) || (!c && d))) ~> s3 := True, s12 := False, q := True
     goal
     True
